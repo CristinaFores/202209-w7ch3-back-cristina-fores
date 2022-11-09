@@ -1,11 +1,13 @@
-import app from "./index.js";
-import debug from "debug";
+import debugConfig from "debug";
 import chalk from "chalk";
+import app from "./index.js";
+
+const debug = debugConfig("items:root");
 
 const startServer = async (port: number) =>
   new Promise((resolve, reject) => {
     const server = app.listen(port, () => {
-      debug(chalk.green(`Server is running on http://localhost:${port}`));
+      debug(chalk.magenta(`Server is running on http://localhost:${port}`));
       resolve(server);
     });
 
